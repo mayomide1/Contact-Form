@@ -42,9 +42,13 @@ tbody td {
 
 tbody td:last-of-type .action-btns{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 10px;
+}
+
+.type, 
+.name{
+    font-weight: bold;
 }
 
 .delete-btn,

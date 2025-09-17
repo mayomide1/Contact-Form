@@ -56,7 +56,7 @@ const handleResolve = (id) => {
           <th>MESSAGE</th>
           <th>CREATED</th>
           <th>STATUS</th>
-          <th></th>
+          <th>ACTION</th>
           </tr>
         </thead>
         <tbody>
@@ -68,9 +68,9 @@ const handleResolve = (id) => {
     responses.map((data) => (
       <tr key={data.id}>
         <td>{data.id}</td>
-        <td>{data.name}</td>
+        <td className='name'>{data.name}</td>
         <td>{data.email}</td>
-        <td>{data.type}</td>
+        <td className='type'>{data.type}</td>
         <td>{data.message}</td>
         <td>{new Date(data.created_at).toLocaleDateString()}</td>
         <td>
