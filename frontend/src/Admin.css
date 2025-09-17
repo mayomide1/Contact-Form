@@ -1,0 +1,89 @@
+.admin-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.admin-container h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #4A90E2;
+  color: white;
+}
+
+thead th {
+  padding: 8px;
+  text-align: left;
+  font-size: 16px;
+}
+
+tbody td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+}
+
+tbody td:last-of-type .action-btns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.delete-btn,
+.resolve-btn {
+  background-color: #E94B3C;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-weight: bold;
+}
+
+.delete-btn:hover {
+  background-color: #C0392B;
+}
+
+.resolve-btn{
+ background-color: green;
+  color: white; 
+}
+
+.resolve-btn:hover{
+ background-color: hsl(120, 100%, 15%);
+}
+
+.pending {
+  background-color: #FFEB3B;
+  color: white; 
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-weight: bold;
+}
+
+.resolved {
+  background-color: #4CAF50;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-weight: bold;
+}

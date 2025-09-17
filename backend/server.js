@@ -15,9 +15,9 @@ const db = mysql.createConnection({
 })
 
 app.post('/form', (req, res) => {
-    const {name, email, message} = req.body;
-    const sql =  'INSERT INTO contactform (name, email, message) VALUES (?, ?, ?)'
-    db.query(sql, [name, email, message], (err, result) => {
+    const {name, email, type, message} = req.body;
+    const sql =  'INSERT INTO contactform (name, email, type, message) VALUES (?, ?, ?, ?)'
+    db.query(sql, [name, email, type, message], (err, result) => {
         if(err){
             console.error("Database error:", err);
             return res.status(500).json({ error: err.message });
@@ -36,8 +36,27 @@ app.get('/admin', (req, res) => {
     })
 })
 
+app.delete('/admin/:id', (req, res) => {
+  const id = req.params.id;
+  const sql = 'DELETE FROM contactform WHERE id = ?';
+  db.query(sql, [id], (err, result) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ error: 'Failed to delete' });
+    }
+    res.status(200).json({ message: 'Deleted successfully' });
+  });
+});
 
-
+app.patch('/admin/:id', (req, res) => {
+  const { id } = req.params;
+  const sql = 'UPDATE contactform SET status = "Resolved" WHERE id = ?';
+  
+  db.query(sql, [id], (err, result) => {
+    if (err) return res.status(500).json({ error: 'Failed to update status' });
+    res.json({ message: 'Feedback marked as resolved', result });
+  });
+});
 
 
 app.listen(8081, () => {
